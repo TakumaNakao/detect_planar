@@ -1,0 +1,13 @@
+version: '3'
+services:
+  detect_planar:
+    image: takumanakao/detect_planar:latest
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - ../../detect_planar:/home/detect_planar
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/group:/etc/group:ro
+    working_dir: /home/detect_planar
+    tty: true
